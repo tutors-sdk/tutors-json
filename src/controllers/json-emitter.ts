@@ -62,7 +62,7 @@ export class JsonEmitter {
 
   emitTopic(lo: Topic, url: string, jsonObj: any) {
     const topicUrl = `${url}${lo.folder}`;
-    this.emitLo(lo, url, jsonObj);
+    this.emitLo(lo, topicUrl, jsonObj);
     jsonObj.route = `#topic/${topicUrl}`;
     jsonObj.los = [];
     lo.los.forEach((lo) => {
@@ -107,7 +107,7 @@ export class JsonEmitter {
 
   generateCourse(version: string, path: string, course: Course) {
     let courseJson: any = {};
-    courseJson.version = version;
+    courseJson.version = version.toString();
     this.emitCourse(course, '{{COURSEURL}}/', courseJson);
     writeFile(path, 'tutors.json', JSON.stringify(courseJson));
   }
