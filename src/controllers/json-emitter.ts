@@ -95,7 +95,6 @@ export class JsonEmitter {
 
   emitCourse(lo: Course, url: string, jsonObj: any) {
     this.emitLo(lo, url, jsonObj);
-    jsonObj.version = this.version;
     jsonObj.los = [];
     lo.los.forEach((lo) => {
       let topicObj: any = {};
