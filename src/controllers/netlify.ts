@@ -49,7 +49,7 @@ function redirectHtmlFile(version: string): string {
   return netlifyHtml;
 }
 
-export function generateNetlifyToml(site: string, url: string) {
+export function generateNetlifyToml(site: string) {
   writeFile(site, 'netlify.toml', netlifyToml);
   let baseCourseUrl = '';
   writeFile(site, 'index.html', redirectHtmlFile(version));
