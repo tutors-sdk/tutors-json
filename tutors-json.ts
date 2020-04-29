@@ -3,15 +3,20 @@ import * as fs from 'fs';
 import { Course } from '@tutors-sdk/tutors-lib/src/models/course';
 import { JsonEmitter } from './src/controllers/json-emitter';
 import { generateNetlifyToml } from './src/controllers/netlify';
-const version = require('./package.json').version;
+const tutors = require('./package.json').version;
+const tutors_lib = require('./package.json').dependencies['@tutors-sdk/tutors-lib'];
+
+const version = `tutors-json ${tutors} (tutors-lib: ${tutors_lib})`;
 
 if (fs.existsSync('course.md')) {
   const course = new Course();
   let site = 'json';
+  console.log(`Static course generator ${version}`);
   course.publish(site);
   const emitter = new JsonEmitter();
   emitter.generateCourse(version, site, course);
   generateNetlifyToml(site);
+  console.log(` ${version}`);
 } else {
-  console.log('Cannot locate course.md or portfolio.yaml. Change to course folder and try again. ');
+  console.log('Cannot locate course.md. Change to course folder and try again. ');
 }
