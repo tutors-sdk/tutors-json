@@ -10,12 +10,12 @@ const version = `tutors-json ${tutors} (tutors-lib: ${tutors_lib})`;
 
 if (fs.existsSync('course.md')) {
   const course = new Course();
-  let site = 'json';
+  let folder = process.cwd() + '/json'
   console.log(`Static course generator ${version}`);
-  course.publish(site);
+  course.publish(folder);
   const emitter = new JsonEmitter();
-  emitter.generateCourse(version, site, course);
-  generateNetlifyToml(site);
+  emitter.generateCourse(version, folder, course);
+  generateNetlifyToml(folder);
   console.log(` ${version}`);
 } else {
   console.log('Cannot locate course.md. Change to course folder and try again. ');
