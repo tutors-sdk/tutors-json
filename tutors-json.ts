@@ -18,5 +18,5 @@ if (fs.existsSync('course.md')) {
   generateNetlifyToml(folder);
   console.log(` ${version}`);
 } else {
-  console.log('Cannot locate course.md. Change to course folder and try again. ');
+  console.log('Cannot locate course.md. Please Change to course folder and try again. ');
 }
