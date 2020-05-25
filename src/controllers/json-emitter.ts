@@ -18,8 +18,8 @@ export class JsonEmitter {
     if (lo.videoid) {
       jsonObj.video = `#video/${url}/${lo.videoid}`;
     }
-    if (lo.videolink) {
-      jsonObj.videolink = `${lo.videolink}`;
+    if (lo.videoids) {
+      jsonObj.videoids = lo.videoids;
     }
     jsonObj.id = lo.folder;
     jsonObj.route = lo.link;
