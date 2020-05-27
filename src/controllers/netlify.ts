@@ -37,12 +37,13 @@ function redirectHtmlFile(version: string): string {
       </head>
       <body>
         <script>
+          var domain = window.location.hostname.substring(window.location.hostname.lastIndexOf(".", window.location.hostname.lastIndexOf(".") - 1) + 1);
           var url = window.location.href;
           var baseUrl = url.substring(url.indexOf('//') + 2);
           var array = baseUrl.split('/');
           array.pop();
           var tutorsUrl = array.join('/');
-          window.location = "https://tutors-design.netlify.app/course/" + tutorsUrl;
+          window.location = "https://tutors-design." + domain + "/course/" + tutorsUrl;
         </script>
       </body>
     </html>`;
