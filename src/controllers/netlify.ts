@@ -43,7 +43,7 @@ function redirectHtmlFile(version: string): string {
           var array = baseUrl.split('/');
           array.pop();
           var tutorsUrl = array.join('/');
-          window.location = "https://tutors-design." + domain + "/#/course/" + tutorsUrl;
+          window.location = "https://tutors-svelte." + domain + "/#/course/" + tutorsUrl;
         </script>
       </body>
     </html>`;
