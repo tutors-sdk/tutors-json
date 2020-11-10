@@ -105,6 +105,7 @@ export class JsonEmitter {
       jsonObj.los.push(topicObj);
     });
     jsonObj.enrollment = lo.enrollment;
+    jsonObj.calendar = lo.calendar;
   }
 
   generateCourse(version: string, path: string, course: Course) {
